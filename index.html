@@ -1,60 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sudoku Game</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="A simple Sudoku Game using HTML, CSS, and JavaScript" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku Game</title>
+    <meta name="description" content="A simple Sudoku Game using HTML, CSS, and JavaScript" />
     <meta name="author" content="Krunal Patel" />
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
-
-    <!-- Local Styles -->
+    
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="sudoku.css" />
 
-    <!-- jQuery and Game Logic -->
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="sudoku.js"></script>
-
-    <!-- Game Initialization and Screen Management -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const homeScreen = document.getElementById("home-screen");
-            const gameScreen = document.getElementById("game-screen");
-            const startButton = document.getElementById("start-game");
-            const backButton = document.getElementById("back-btn");
-
-            startButton.addEventListener("click", () => {
-                homeScreen.style.display = "none";
-                gameScreen.style.display = "block";
-                $(".sudoku-game").sudoku({});
-            });
-
-            backButton.addEventListener("click", () => {
-                window.location.reload(); // restart the whole page
-            });
-
-            const checkWin = setInterval(() => {
-                if ($(".sdk-col").length && $(".sdk-col").length === $(".sdk-solution").length) {
-                    backButton.style.display = "inline-block";
-                }
-            }, 1000);
-        });
-    </script>
+    <!-- Game Logic -->
+    <script src="sudoku.js" defer></script>
 </head>
-
 <body>
     <!-- Home Screen -->
     <div id="home-screen" class="home-screen">
-        <h1> Sudoku Challenge</h1>
+        <h1>Sudoku Challenge</h1>
         <button id="start-game">Start Game</button>
     </div>
 
-    <!--  Game Screen -->
+    <!-- Game Screen -->
     <div id="game-screen" class="sudoku-bk" style="display: none;">
         <div class="sudoku-game"></div>
-        <button id="back-btn" class="back-button" style="display:none;">⬅ Back to Home</button>
+        <button id="back-btn" class="back-button" style="display: none;">⬅ Back to Home</button>
     </div>
 </body>
 </html>
